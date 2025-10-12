@@ -14,7 +14,7 @@ const TrendingCard = ({ movie: {movie_id, title, poster_url }, index}: TrendingC
                 resizeMode="cover"
              />
 
-             <View className="absolute bottom-9 -left-3.5">
+             <View className="absolute bottom-9 px-2 py-1 -left-3.5">
               <MaskedView maskElement={
                 <Text className="font-bold text-white text-6xl">{index + 1}</Text>
               }>

@@ -1,14 +1,13 @@
+import MovieCard from "@/components/MovieCard";
 import SearchBar from "@/components/SearchBar";
+import TrendingCard from "@/components/TrendingCard";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
-import { Link } from "expo-router";
-import { ActivityIndicator, FlatList, Image, ScrollView, Text, View } from "react-native";
-import { useRouter } from "expo-router";
-import useFetch from "@/services/useFetch";
 import { fetchMovies } from "@/services/api";
-import MovieCard from "@/components/MovieCard";
 import { getTrendingMovies } from "@/services/appwrite";
-import TrendingCard from "@/components/TrendingCard";
+import useFetch from "@/services/useFetch";
+import { useRouter } from "expo-router";
+import { ActivityIndicator, FlatList, Image, ScrollView, Text, View } from "react-native";
 // import { SafeAreaView } from 'react-native-safe-area-context';
 
 
@@ -48,7 +47,7 @@ export default function Index() {
           ) : (
             <View className="flex-1 mt-5">
               <SearchBar
-                onPress={() => router.push("/search")}
+                onPress={() => {router.push("/search")}}
                 placeholder="Search for a movie"
               />
 
@@ -61,11 +60,14 @@ export default function Index() {
                   showsHorizontalScrollIndicator={false}
                   ItemSeparatorComponent={() => <View className="w-4" />}
                   className="mb-4 mt-3" 
-                  data={trendingMovies} 
+                  data={trendingMovies}
+                  contentContainerStyle={{
+                    gap: 26,
+                  }} 
                   renderItem={({item, index}) => (
                     <TrendingCard movie={item} index={index} />
                 )}
-                  keyExtractor={(item) => item.movie_id}
+                  keyExtractor={(item) => item.movie_id.toString()}
                 />
                 </View>
               )}
@@ -75,11 +77,11 @@ export default function Index() {
 
                 <FlatList
                   data={movies}
-                  renderItem={({ item }) => (
+                  renderItem={({ item }) => 
                     <MovieCard
                       {...item}
                      />
-                  )}
+                  }
                   keyExtractor={(item) => item.id.toString()}
                   numColumns={3}
                   columnWrapperStyle={{
@@ -94,7 +96,6 @@ export default function Index() {
               </>
             </View>
           )}
-
         </ScrollView>
     </View>
   );
