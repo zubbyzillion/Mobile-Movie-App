@@ -2,7 +2,6 @@ import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View } from 'reac
 import React, { useEffect, useState } from 'react'
 import { images } from '@/constants/images'
 import MovieCard from '@/components/MovieCard'
-import { useRouter } from 'expo-router'
 import { fetchMovies } from '@/services/api'
 import useFetch from '@/services/useFetch'
 import { icons } from '@/constants/icons'
@@ -10,7 +9,7 @@ import SearchBar from '@/components/SearchBar'
 import { updateSearchCount } from '@/services/appwrite'
 
 const search = () => {
-    const [searchQuery, setSearchQuery] = useState("")
+    const [searchQuery, setSearchQuery] = useState("");
     // const router = useRouter();
 
     const { 
@@ -23,11 +22,11 @@ const search = () => {
 
   useEffect(() => {
       
-      const timeoutId = setTimeout( async () => {
+      const timeoutId = setTimeout(async () => {
           if(searchQuery.trim()) {
               await loadMovies();
 
-              if(movies?.length > 0 && movies?.[0])
+              if(movies?.length! > 0 && movies?.[0])
                 await updateSearchCount(searchQuery, movies[0]);
         } else {
             reset();
@@ -93,7 +92,7 @@ const search = () => {
                 !loading && !error ? (
                     <View className="mt-10 px-5">
                         <Text className="text-center text-gray-500">
-                            {searchQuery.trim() ? "No movies found" : "Search for a movie"}
+                            {searchQuery.trim() ? "No movies found" : "Start typing to search for movies"}
                         </Text>
                     </View>
                 ) : null
