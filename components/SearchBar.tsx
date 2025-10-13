@@ -26,5 +26,3 @@ const SearchBar = ({ placeholder, onPress, value, onChangeText }: Props) => {
 }
 
 export default SearchBar
-
-const styles = StyleSheet.create({})

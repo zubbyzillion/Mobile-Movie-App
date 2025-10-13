@@ -43,7 +43,7 @@ const _layout = () => {
             overflow: "hidden",
             borderWidth: 1,
             borderColor: "#0F0D23",
-        },
+        }
     }}>
         <Tabs.Screen
         name="index"
@@ -51,11 +51,12 @@ const _layout = () => {
             title: "index",
             headerShown: false,
             tabBarIcon: ({ focused }) => (
-                
+                <>
                     <TabIcon 
                         focused={focused} 
                         icon={icons.home} 
                         title="Home" />
+                </>
             )
         }}
          />
@@ -65,11 +66,13 @@ const _layout = () => {
             title: "Search",
             headerShown: false,
             tabBarIcon: ({ focused }) => (
+                <>
                     <TabIcon 
                         focused={focused} 
                         icon={icons.search} 
                         title="Search" />
-            ),
+                </>
+            )
         }}
          />
         <Tabs.Screen
@@ -78,11 +81,13 @@ const _layout = () => {
             title: "Saved",
             headerShown: false,
             tabBarIcon: ({ focused }) => (
+                <>
                     <TabIcon 
                         focused={focused} 
                         icon={icons.save} 
                         title="Saved" />
-            ),
+                </>
+            )
         }}
          />
         <Tabs.Screen
@@ -91,11 +96,13 @@ const _layout = () => {
             title: "Profile",
             headerShown: false,
             tabBarIcon: ({ focused }) => (
+                <>
                     <TabIcon 
                         focused={focused} 
                         icon={icons.person} 
                         title="Profile" />
-            ),
+                </>
+            )
         }}
          />
     </Tabs>
@@ -103,5 +110,3 @@ const _layout = () => {
 }
 
 export default _layout
-
-const styles = StyleSheet.create({})
